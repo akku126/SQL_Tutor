@@ -1,5 +1,11 @@
 # SQL_Tutor
-Download & run the scipt "Akanksha_Thesis_content_install.sh"
+Download the scipt "Akanksha_Thesis_content_install.sh"
+
+#Copy the script to Engine Container
+docker cp '/path/to/script' container_id:/
+
+#Run the script inside engine container
+bash Akanksha_Thesis_content_install.sh
 
 ##Execute following command inside rdb container terminal
 #Get MYSQL terminal
@@ -42,3 +48,5 @@ db.environments.insertOne({"name" : "sql", "editor_mode" : "sql", "compile" : tr
 #check whether insertion done for sql
 
 db.environments.find();
+
+After following above steps, SQL facilities will be accessible from prutor interface.
