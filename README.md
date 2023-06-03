@@ -1,1 +1,44 @@
 # SQL_Tutor
+Download & run the scipt "Akanksha_Thesis_content_install.sh"
+
+##Execute following command inside rdb container terminal
+#Get MYSQL terminal
+mysql
+#add new attribute to 'problem' table
+ALTER TABLE its.problem
+ADD COLUMN schema_id INT;
+
+#create new table to store schema
+CREATE TABLE `its`.`xdata_schema` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255),
+  `schema_file` BLOB,
+  'sample_data' BLOB,
+  'description' VARCHAR(255)
+);
+
+#make schema_id in problem table as foreign key
+
+ALTER TABLE its.problem
+ADD CONSTRAINT 'FOREIGN'
+FOREIGN KEY ('schema_id')
+REFERENCES 'xdata_schema' ('id')
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+
+##Execute following commands to NOSQL container terminal
+
+#Get mongodb terminal
+mongo
+
+#Get inside its 
+use its;
+
+#Insert configuration for sql
+
+db.environments.insertOne({"name" : "sql", "editor_mode" : "sql", "compile" : true, "output_format" : "text", "source_ext" : "sql", "binary_ext" : "out", "cmd_compile" : "/var/www/app/compilers/wrappers/xdata_wrapper.sh %s.sql", "cmd_execute" : "%s", "display" : "text", "link_template" : "", "default" : false });
+
+#check whether insertion done for sql
+
+db.environments.find();
