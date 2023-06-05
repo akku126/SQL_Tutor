@@ -49,4 +49,7 @@ db.environments.insertOne({"name" : "sql", "editor_mode" : "sql", "compile" : tr
 
 db.environments.find();
 
+When running the program,it might happen that the postgresql database server refuses the connection,in this case we might need to edit the "pg_hba.conf" file. Edit the authentication method of
+"postgres" user  from 'peer' to 'trust'.Restart postgresql using "service postgresql restart".Re run the installation script so that it can now connect to database server and create roles.
+
 After following above steps, SQL facilities will be accessible from prutor interface.
