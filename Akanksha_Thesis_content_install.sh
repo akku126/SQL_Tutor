@@ -31,6 +31,17 @@ apt install postgresql postgresql-contrib
 #Start postgresql
 service postgresql start
 
+#cget postgresql terminal
+psql -U postgres
+
+#create database ,users 
+CREATE ROLE testuser WITH PASSWORD 'Testuser@123';
+CREATE ROLE xdatauser WITH PASSWORD 'Xdatauser@123';
+create database xdatadb;
+grant all privileges on database xdatadb to xdatauser;
+grant all privileges on database xdatadb to testuser
+
+
 ##Get all the required scripts
 
 git clone https://github.com/akku126/Mtech_thesis_scripts.git
@@ -55,12 +66,15 @@ mv /Mtech_thesis_scripts/t1.argfile /tmp
 
 #get XData-DataGen
 git clone https://github.com/akku126/XData-DataGen.git
+chmod -R 777 /XData-DataGen
+chmod -R 777 /tmp
+
+chmod g+s /tmp
 
 mv /XData-DataGen/XData/Z3\ files/z3 /usr/bin
 mv /XData-DataGen/XData/Z3\ files/libz3.so /usr/lib
 mv /XData-DataGen/XData/Z3\ files/libz3java.so /usr/lib
 chmod 777 /usr/bin/z3
-
 
 
 
