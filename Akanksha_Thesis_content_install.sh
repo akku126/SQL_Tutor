@@ -39,7 +39,7 @@ CREATE ROLE testuser WITH PASSWORD 'Testuser@123';
 CREATE ROLE xdatauser WITH PASSWORD 'Xdatauser@123';
 create database xdatadb;
 grant all privileges on database xdatadb to xdatauser;
-grant all privileges on database xdatadb to testuser
+grant all privileges on database xdatadb to testuser;
 
 
 ##Get all the required scripts
