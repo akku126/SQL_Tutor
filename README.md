@@ -10,8 +10,10 @@ bash Akanksha_Thesis_content_install.sh
 <h3>Execute following command inside rdb container terminal</h3><br>
 <b>Get MYSQL terminal</b><br>
 mysql
+<br>
 <b>add new attribute to 'problem' table</b><br>
 ALTER TABLE its.problem
+
 ADD COLUMN schema_id INT;
 
 <b>create new table to store schema</b><br>
@@ -26,10 +28,15 @@ CREATE TABLE `its`.`xdata_schema` (
 <b>make schema_id in problem table as foreign key</b><br>
 
 ALTER TABLE its.problem
+
 ADD CONSTRAINT 'FOREIGN'
+
 FOREIGN KEY ('schema_id')
+
 REFERENCES 'xdata_schema' ('id')
+
 ON DELETE CASCADE
+
 ON UPDATE CASCADE;
 
 
@@ -50,8 +57,7 @@ db.environments.insertOne({"name" : "sql", "editor_mode" : "sql", "compile" : tr
 db.environments.find();
 
 <b>Unable to connect to postgresql?</b><br>
-
-<h3>Note: </h3>When running the program,it might happen that the postgresql database server refuses the connection,in this case we might need to edit the "pg_hba.conf" file. Edit the authentication method of
+When running the program,it might happen that the postgresql database server refuses the connection,in this case we might need to edit the "pg_hba.conf" file. Edit the authentication method of
 "postgres" user  from 'peer' to 'trust' and 'ipv4' to 'trust'.Restart postgresql using "service postgresql restart".Re run the installation script so that it can now connect to database server and create roles.
 
 After following above steps, SQL facilities will be accessible from prutor interface.
