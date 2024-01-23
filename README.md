@@ -55,3 +55,5 @@ When running the program,it might happen that the postgresql database server ref
 "postgres" user  from 'peer' to 'trust'.Restart postgresql using "service postgresql restart".Re run the installation script so that it can now connect to database server and create roles.
 
 After following above steps, SQL facilities will be accessible from prutor interface.
+
+<b>All other related scripts can be found here: </b><a href="https://github.com/akku126/Mtech_thesis_scripts">https://github.com/akku126/Mtech_thesis_scripts</a>
