@@ -1,20 +1,20 @@
 # SQL_Tutor
 Download the scipt "Akanksha_Thesis_content_install.sh"
 
-#Copy the script to Engine Container
+<b>Copy the script to Engine Container</b>
 docker cp '/path/to/script' container_id:/
 
-#Run the script inside engine container
+<b>Run the script inside engine container</b>
 bash Akanksha_Thesis_content_install.sh
 
-##Execute following command inside rdb container terminal
-#Get MYSQL terminal
+<h3>Execute following command inside rdb container terminal</h3>
+<b>>Get MYSQL terminal</b
 mysql
-#add new attribute to 'problem' table
+<b>add new attribute to 'problem' table</b>
 ALTER TABLE its.problem
 ADD COLUMN schema_id INT;
 
-#create new table to store schema
+<b>create new table to store schema</b>
 CREATE TABLE `its`.`xdata_schema` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(255),
@@ -23,7 +23,7 @@ CREATE TABLE `its`.`xdata_schema` (
   'description' VARCHAR(255)
 );
 
-#make schema_id in problem table as foreign key
+<b>make schema_id in problem table as foreign key</b>
 
 ALTER TABLE its.problem
 ADD CONSTRAINT 'FOREIGN'
@@ -33,27 +33,27 @@ ON DELETE CASCADE
 ON UPDATE CASCADE;
 
 
-##Execute following commands to NOSQL container terminal
+<h3>Execute following commands to NOSQL container terminal</h3>
 
-#Get mongodb terminal
+<b>Get mongodb terminal</b>
 mongo
 
-#Get inside its 
+<b>Get inside its</b>
 use its;
 
-#Insert configuration for sql
+<b>Insert configuration for sql</b>
 
 db.environments.insertOne({"name" : "sql", "editor_mode" : "sql", "compile" : true, "output_format" : "text", "source_ext" : "sql", "binary_ext" : "out", "cmd_compile" : "/var/www/app/compilers/wrappers/xdata_wrapper.sh %s.sql", "cmd_execute" : "%s", "display" : "text", "link_template" : "", "default" : false });
 
-#check whether insertion done for sql
+<b>check whether insertion done for sql</b>
 
 db.environments.find();
 
-#Unable to connect to postgresql?
+<b>Unable to connect to postgresql?</b>
 
 When running the program,it might happen that the postgresql database server refuses the connection,in this case we might need to edit the "pg_hba.conf" file. Edit the authentication method of
 "postgres" user  from 'peer' to 'trust'.Restart postgresql using "service postgresql restart".Re run the installation script so that it can now connect to database server and create roles.
 
 After following above steps, SQL facilities will be accessible from prutor interface.
 
-<b>All other related scripts can be found here: </b><a href="https://github.com/akku126/Mtech_thesis_scripts">https://github.com/akku126/Mtech_thesis_scripts</a>
+<h2>All other related scripts can be found here: </h2><a href="https://github.com/akku126/Mtech_thesis_scripts">https://github.com/akku126/Mtech_thesis_scripts</a>
