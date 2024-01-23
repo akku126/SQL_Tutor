@@ -1,4 +1,9 @@
 # SQL_Tutor
+
+<b>Note : </b> After following below steps, the prutor system will be connected to xdata-dataGenration. Please note that this is required untill the scripts are not added as the integral part of of prutor codebase.Following this step, SQL Tutor can be successfully configured in the local system. For more information of each scripts involved, please go through the thesis report.
+
+<h2>Steps</h2>
+
 Download the scipt "Akanksha_Thesis_content_install.sh"
 
 <b>Copy the script to Engine Container</b><br>
